@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CrossJump</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main id="menu" class="screen active">
+  <h1 class="logo">Cross<b>Jump</b></h1>
+  <p class="tag">Move diagonally. Jump to capture. Take every piece.</p>
+  <div class="seg" id="modeSeg" role="group" aria-label="Matchup">
+    <button data-mode="ai" class="on">Play with Computer</button>
+    <button data-mode="local">Play with Friend</button>
+  </div>
+  <div id="levels" class="levels"></div>
+  <p class="hint-text">Pieces sit on dark squares and move one step diagonally, forward or backward. Jump an adjacent opponent when the square behind it is empty; chain jumps must continue. Capture all enemy pieces (or leave them with no moves) to win.</p>
+</main>
+
+<section id="game" class="screen">
+  <header class="hud">
+    <button id="btnMenu" class="ghost">Menu</button>
+    <div class="lvl" id="lvlName"></div>
+    <button id="btnRestart" class="ghost">Restart</button>
+  </header>
+  <div class="scores">
+    <div class="pl p1" id="pl1"><i class="dot"></i><span class="nm" id="nm1">Player 1</span><span class="sc"><b id="left1">0</b> left · <b id="cap1">0</b> captured</span></div>
+    <div class="pl p2" id="pl2"><i class="dot"></i><span class="nm" id="nm2">Player 2</span><span class="sc"><b id="left2">0</b> left · <b id="cap2">0</b> captured</span></div>
+  </div>
+  <div id="turn" class="turn" aria-live="polite"></div>
+  <div class="boardwrap"><div id="board" class="board"><div id="pieces" class="pieces"></div></div></div>
+</section>
+
+<div id="win" class="overlay" hidden>
+  <div class="confetti" id="confetti"></div>
+  <div class="card">
+    <h2 id="winTitle"></h2>
+    <p id="winSub"></p>
+    <div class="row">
+      <button id="btnAgain" class="primary">Play again</button>
+      <button id="btnNext" class="primary alt">Next level</button>
+      <button id="btnToMenu" class="ghost">Menu</button>
+    </div>
+  </div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
